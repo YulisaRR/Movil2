@@ -1,4 +1,4 @@
-/*package com.jetbrains.spacetutorial
+package com.jetbrains.spacetutorial
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -100,4 +100,4 @@ fun App() {
             }
         }
     }
-}*/
+}
