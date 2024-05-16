@@ -18,6 +18,9 @@ kotlin {
     sourceSets {
         
         androidMain.dependencies {
+            implementation(libs.androidx.compose.material3)
+            implementation(libs.koin.androidx.compose)
+            implementation(libs.androidx.lifecycle.viewmodel.compose)
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
         }
