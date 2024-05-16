@@ -23,50 +23,46 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "Shared"
             isStatic = false
-    }
-    
-    sourceSets {
-        commonMain.dependencies {
-            // put your Multiplatform dependencies here
-
-                    implementation(libs.kotlinx.coroutines.core)
-                    implementation(libs.ktor.client.core)
-                    implementation(libs.ktor.client.content.negotiation)
-                    implementation(libs.ktor.serialization.kotlinx.json)
-                    implementation(libs.runtime)
-                    implementation(libs.kotlinx.datetime)
-                    implementation(libs.koin.core)
-                }
-                androidMain.dependencies {
-                    implementation(libs.ktor.client.android)
-                    implementation(libs.android.driver)
-                }
-                iosMain.dependencies {
-                    implementation(libs.ktor.client.darwin)
-                    implementation(libs.native.driver)
-                }
-            }
         }
 
+        sourceSets {
+            commonMain.dependencies {
+                // put your Multiplatform dependencies here
 
-
-
-android {
-    namespace = "org.example.project.shared"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+                implementation(libs.kotlinx.coroutines.core)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.runtime)
+                implementation(libs.kotlinx.datetime)
+                implementation(libs.koin.core)
+            }
+            androidMain.dependencies {
+                implementation(libs.ktor.client.android)
+                implementation(libs.android.driver)
+            }
+            iosMain.dependencies {
+                implementation(libs.ktor.client.darwin)
+                implementation(libs.native.driver)
+            }
+        }
     }
-    defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
-    }
-}
 
-sqldelight {
-    databases {
-        create("AppDatabase") {
-            packageName.set("com.jetbrains.spacetutorial.cache")
+
+    /*
+    android {
+        namespace = "com.jetbrains.spacetutorial.shared"
+        compileSdk = libs.versions.android.compileSdk.get().toInt()
+        defaultConfig {
+            minSdk = libs.versions.android.minSdk.get().toInt()
+        }
+    }
+*/
+    sqldelight {
+        databases {
+            create("AppDatabase") {
+                packageName.set("com.jetbrains.spacetutorial.cache")
+            }
         }
     }
 }
